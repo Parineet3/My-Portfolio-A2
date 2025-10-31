@@ -1,0 +1,76 @@
+:root {
+  font-family: Inter, system-ui, Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Remove dark scheme and force light */
+  color: #fff8e7;              /* dark text */
+  background-color: #fff8e7;   /* light background */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.portfolio-title {
+  font-size: 2.5em;
+  font-weight: 700;
+  color: rgb(104, 6, 6);
+}
+
+body {
+  margin: auto;
+  /* width: 980px; */
+  background-color: #fff8e7; /* optional: soft beige if you like */
+  color: #333;               /* ensure readable text */
+}
+
+.header-top {
+  display: flex;
+  /* justify-content: space-between; /* nav left, logo right */
+  align-items: center;
+  padding: 10px 20px;
+  /* background-color: #333; */
+}
+
+/* Nav bar inside header */
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px; /* spacing between links */
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li a {
+  text-decoration: none;
+  color: #213547;
+  font-weight: 500;
+}
+
+.navbar li a:hover {
+  color: #646cff;
+}
+
+/* Logo sizing */
+.logo-container {
+  width: 60px;  /* adjust as needed */
+  height: auto;
+  float: right;
+  margin-right: 20px;
+}
+
+.logo-container img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  max-width: 1100px;
+  margin: auto;
+  min-height: 100vh; /* full height */
+}

@@ -1,0 +1,42 @@
+.education-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.education-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: rgb(104, 6, 6);
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.education-item {
+    background-color: #d9ed92;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.education-degree {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: rgb(104, 6, 6);
+    margin-bottom: 8px;
+}
+
+.education-school {
+    font-size: 1.1rem;
+    color: #344e41;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.education-year {
+    font-size: 1rem;
+    color: #666;
+    font-style: italic;
+}

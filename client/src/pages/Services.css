@@ -1,0 +1,39 @@
+/* Services.css */
+.services-container {
+  padding: 20px;
+}
+
+.services-title {
+  font-size: 34px;
+  margin-bottom: 80px;
+  color: rgb(104, 6, 6);
+}
+
+.services-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.service-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  width: 250px;
+  background: #d9ed92;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+  
+}
+
+.service-card:hover {
+  transform: scale(1.05);
+}
+
+.service-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}

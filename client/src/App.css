@@ -1,0 +1,60 @@
+:root {
+  font-family: Inter, system-ui, Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Remove dark scheme and force light */
+  color: #213547;              /* dark text */
+  background-color: #ffffff;   /* light background */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: auto;
+  /* width: 980px; */
+  background-color: #fff8e7; /* optional: soft beige if you like */
+  color: #333;               /* ensure readable text */
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between; /* nav left, logo right */
+  align-items: center;
+  padding: 10px 20px;
+}
+
+/* Nav bar inside header */
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px; /* spacing between links */
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li a {
+  text-decoration: none;
+  color: #213547;
+  font-weight: 500;
+}
+
+.navbar li a:hover {
+  color: #646cff;
+}
+
+/* Logo sizing */
+.logo-container {
+  width: 60px;  /* adjust as needed */
+  height: auto;
+  
+}
+
+.logo-container img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
