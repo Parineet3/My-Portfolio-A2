@@ -34,10 +34,17 @@
 .contact-form input,
 .contact-form textarea {
   padding: 10px;
-  border: 1px solid rgb(104, 6, 6);
+  border: 1px solid #d48383;
   border-radius: 6px;
-  background-color: #d9ed92;
+  background-color: #f5ebde;
+  color: #1C352D;
+}
 
+/* For all inputs + textarea inside .contact-form */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #1C352D;
+    opacity: 1; /* makes sure it's not faded */
 }
 
 .contact-form button {

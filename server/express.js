@@ -11,6 +11,7 @@ import authRoutes from "./routes/auth.routes.js";
 import projectRoutes from "./routes/project.routes.js";
 import contactRoutes from "./routes/contact.routes.js";
 import educationRoutes from "./routes/education.routes.js";
+import serviceRoutes from "./routes/service.routes.js"; 
 
 const app = express();
 app.use(express.json());
@@ -27,6 +28,7 @@ app.use("/", authRoutes);
 app.use("/", projectRoutes);
 app.use("/", contactRoutes);
 app.use("/", educationRoutes);
+app.use("/", serviceRoutes);
 
 app.use((err, req, res, next) => {
   if (err.name === "UnauthorizedError") {

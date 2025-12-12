@@ -1,21 +1,33 @@
 import mongoose from "mongoose";
 
-const contactSchema = new mongoose.Schema({
-    firstname: {
+const ContactSchema = new mongoose.Schema({
+  firstname: {
     type: String,
+    required: true,
     trim: true,
-    required: "First name is required",
   },
   lastname: {
     type: String,
+    required: true,
     trim: true,
-    required: "Last name is required",
   },
   email: {
     type: String,
+    required: true,
     trim: true,
-    required: "Email is required",
-    match: [/.+\@.+\..+/, "Please fill a valid email address"],
   },
+  phone: {
+    type: String,
+    trim: true,
+  },
+  description: {  // 🔥 THIS IS THE MESSAGE TEXT
+    type: String,
+    required: true,
+  },
+  created: {
+    type: Date,
+    default: Date.now,
+  }
 });
-export default mongoose.model("Contact", contactSchema);
+
+export default mongoose.model("Contact", ContactSchema);

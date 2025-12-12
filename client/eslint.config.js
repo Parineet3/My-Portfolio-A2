@@ -15,7 +15,13 @@ export default defineConfig([
     ],
     languageOptions: {
       ecmaVersion: 2020,
-      globals: globals.browser,
+      globals:{ 
+        ...globals.browser,
+        test: "readonly",
+        expect: "readonly",
+        ...globals.node,
+        ...globals.vitest
+      },
       parserOptions: {
         ecmaVersion: 'latest',
         ecmaFeatures: { jsx: true },

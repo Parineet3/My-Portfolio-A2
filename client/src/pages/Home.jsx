@@ -15,7 +15,7 @@ export default function Home() {
       </main>
 
       <div className="cta">
-        <Link to="/about" className="btn">
+        <Link to="/app/about" className="btn">
           Learn More About Me
         </Link>
       </div>

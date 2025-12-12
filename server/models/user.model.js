@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import crypto from "crypto";
+
 const UserSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -12,6 +13,10 @@ const UserSchema = new mongoose.Schema({
     unique: "Email already exists",
     match: [/.+\@.+\..+/, "Please fill a valid email address"],
     required: "Email is required",
+  },
+  role: {
+    type: String,
+    default: "user"   // 🆕 Admin or User
   },
   created: {
     type: Date,
@@ -27,16 +32,18 @@ const UserSchema = new mongoose.Schema({
   },
   salt: String,
 });
+
+// 🔐 Password Methods (same as your original)
 UserSchema.virtual("password")
   .set(function (password) {
     this._password = password;
     this.salt = this.makeSalt();
     this.hashed_password = this.encryptPassword(password);
-    //this.hashed_password = password;
   })
   .get(function () {
     return this._password;
   });
+
 UserSchema.path("hashed_password").validate(function (v) {
   if (this._password && this._password.length < 6) {
     this.invalidate("password", "Password must be at least 6 characters.");
@@ -53,10 +60,7 @@ UserSchema.methods = {
   encryptPassword: function (password) {
     if (!password) return "";
     try {
-      return crypto
-        .createHmac("sha1", this.salt)
-        .update(password)
-        .digest("hex");
+      return crypto.createHmac("sha1", this.salt).update(password).digest("hex");
     } catch (err) {
       return "";
     }
@@ -67,4 +71,3 @@ UserSchema.methods = {
 };
 
 export default mongoose.model("User", UserSchema);
-

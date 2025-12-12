@@ -1,0 +1,57 @@
+.contactlist-container {
+  padding: 20px;
+}
+
+.contactlist-title {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: rgb(104, 6, 6);
+  text-align: center;
+}
+
+.contact-table {
+  width: 100%;
+  border-collapse: collapse;
+  /* border-color: # white; */
+  background : #f5ebde;
+  border: 1px solid #d48383;
+}
+
+.contact-table th,
+.contact-table td {
+  padding: 12px;
+  border: 1px solid #999;
+  text-align: left;
+}
+
+.reply-box textarea {
+  width: 180px;
+  height: 80px;
+  padding: 8px;
+  margin-bottom: 5px;
+  background-color: white;
+  color: black;
+}
+
+button {
+  padding: 6px 12px;
+  background: #cbeef3;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: rgb(104, 6, 6);
+}
+
+button:hover {
+  background: #bc4749;
+  color: white;
+}
+
+.delete-btn {
+  background: #e63946;
+  color: white;
+}
+
+.delete-btn:hover {
+  background: #a4161a;
+}

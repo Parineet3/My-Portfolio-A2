@@ -1,5 +1,6 @@
 import express from "express";
 import contactCtrl from "../controllers/contact.controller.js";
+import authCtrl from "../controllers/auth.controller.js";
 
 const router = express.Router();
 
@@ -14,5 +15,9 @@ router.route("/api/contacts/:contactId")
   .delete(contactCtrl.remove);
 
 router.param("contactId", contactCtrl.contactByID);
+
+router.route("/api/contact/reply")
+  .post(authCtrl.requireSignin, authCtrl.isAdmin, contactCtrl.reply);
+
 
 export default router;

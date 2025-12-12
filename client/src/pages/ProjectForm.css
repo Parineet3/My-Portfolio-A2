@@ -1,0 +1,47 @@
+.projectform-container {
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.projectform-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: rgb(104, 6, 6);
+}
+
+.projectform-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.projectform-form input,
+.projectform-form textarea {
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid rgb(104, 6, 6);
+  background: #d9ed92;
+  font-size: 1rem;
+}
+
+.projectform-form button {
+  padding: 12px;
+  background: #cbeef3;
+  color: rgb(104, 6, 6);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.projectform-form button:hover {
+  background: #bc4749;
+}
+
+.projectform-error {
+  color: red;
+  text-align: center;
+  margin-bottom: 15px;
+}

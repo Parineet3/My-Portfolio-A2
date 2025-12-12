@@ -1,0 +1,54 @@
+.eduform-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.eduform-title {
+  text-align: center;
+  font-size: 2rem;
+  color: rgb(104, 6, 6);
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.eduform-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.eduform-form input {
+  padding: 12px;
+  border: 1px solid rgb(104, 6, 6);
+  border-radius: 6px;
+  background-color: #DBE4C9;
+  color: #1C352D;
+}
+
+.eduform-error {
+  color: #bc4749;
+  font-weight: bold;
+}
+
+.eduform-form button {
+  padding: 12px;
+  background: #cbeef3;
+  color: rgb(104, 6, 6);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.eduform-form button:hover {
+  background: #bc4749;
+  color: white;
+}
+
+.eduform-form textarea {
+  height: 100px;
+  background-color: #DBE4C9;
+  color: #1C352D;
+  border-radius: 6px;
+}

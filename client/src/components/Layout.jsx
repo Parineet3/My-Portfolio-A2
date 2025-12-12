@@ -1,39 +1,74 @@
-import React from 'react';
-import { Link, Outlet } from 'react-router-dom';  // Import Outlet
-import logo from '../assets/logo.png'; // Ensure you have a logo image in assets folder
-import './Layout.css'; // Import CSS for styling
+import React from "react";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import logo from "../assets/logo.png";
+import "./Layout.css";
 
 export default function Layout() {
+  const navigate = useNavigate();
+  const jwt = JSON.parse(localStorage.getItem("jwt"));
+  const isLoggedIn = !!jwt;
+  const isAdmin = jwt?.user?.role === "admin";
+
+  const handleSignOut = () => {
+    localStorage.removeItem("jwt");
+    navigate("/signin");
+  };
+
   return (
     <div className="layout">
       {/* Header */}
       <header className="header">
-
         <div className="logo-container">
-            <img src={logo} alt="Parineet Kaur Logo" className="logo" />
-          </div>
-        <h1 className="portfolio-title">My Portfolio</h1> 
+          <img src={logo} alt="Logo" className="logo" />
+        </div>
 
-        <hr className="header-divider" /> 
+        <h1 className="portfolio-title">My Portfolio</h1>
+
+        <hr className="header-divider" />
+
         <div className="header-top">
           <nav className="navbar">
             <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/about">About Me</Link></li>
-              <li><Link to="/education">Education</Link></li>
-              <li><Link to="/project">Projects</Link></li>
-              <li><Link to="/services">Services</Link></li>
-              <li><Link to="/contact">Contact</Link></li>
+              {isLoggedIn && (
+                <>
+                  <Link to="/app/">Home</Link>
+                  <Link to="/app/about">About</Link>
+                  <Link to="/app/education">Education</Link>
+                  <Link to="/app/project">Projects</Link>
+                  <Link to="/app/services">Services</Link>
+                  <Link to="/app/contact">Contact</Link>
+
+                  {/* 🔥 Admin-only link */}
+                  {isAdmin && <Link to="/app/messages">Messages</Link>}
+                  
+                </>
+              )}
+
+              {/* 🔐 If NOT logged in → show sign buttons */}
+              {!isLoggedIn && (
+                <>
+                  <Link to="/signin">Sign In</Link>
+                  <Link to="/signup">Sign Up</Link>
+                </>
+              )}
+
+              {/* 🚪 If logged in → show sign OUT */}
+              {isLoggedIn && (
+                <button
+                  onClick={handleSignOut}
+                  className="signout-btn"
+                >
+                  Sign Out
+                </button>
+              )}
             </ul>
           </nav>
         </div>
-
-                
       </header>
 
-      {/* Main content (this will change based on the route) */}
+      {/* Where pages load */}
       <main>
-        <Outlet />   {/* ✅ This is where your page contents render */}
+        <Outlet />
       </main>
     </div>
   );

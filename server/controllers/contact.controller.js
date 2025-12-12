@@ -2,10 +2,9 @@ import Contact from '../models/contact.model.js';
 import errorHandler from "./error.controller.js";
 import extend from "lodash/extend.js";
 
-
 const create = async (req, res) => {
-  const contact = new Contact(req.body);
   try {
+    const contact = new Contact(req.body);
     await contact.save();
     return res.status(200).json({ message: "Contact successfully added!" });
   } catch (err) {
@@ -22,12 +21,10 @@ const list = async (req, res) => {
   }
 };
 
-// Get contact by ID
 const contactByID = async (req, res, next, id) => {
   try {
     let contact = await Contact.findById(id);
-    if (!contact)
-      return res.status(404).json({ error: "Contact not found" });
+    if (!contact) return res.status(404).json({ error: "Contact not found" });
     req.profile = contact;
     next();
   } catch (err) {
@@ -35,16 +32,11 @@ const contactByID = async (req, res, next, id) => {
   }
 };
 
-// Read single contact
-const read = (req, res) => {
-  return res.json(req.profile);
-};
+const read = (req, res) => res.json(req.profile);
 
-// Update contact by ID
 const update = async (req, res) => {
   try {
-    let contact = req.profile;
-    contact = extend(contact, req.body);
+    let contact = extend(req.profile, req.body);
     contact.updated = Date.now();
     await contact.save();
     res.json(contact);
@@ -53,18 +45,15 @@ const update = async (req, res) => {
   }
 };
 
-// Delete a contact
 const remove = async (req, res) => {
   try {
-    let contact = req.profile;
-    let deletedContact = await contact.deleteOne();
+    let deletedContact = await req.profile.deleteOne();
     res.json(deletedContact);
   } catch (err) {
     return res.status(400).json({ error: errorHandler.getErrorMessage(err) });
   }
 };
 
-// Delete all contacts
 const removeAll = async (req, res) => {
   try {
     await Contact.deleteMany({});
@@ -74,4 +63,12 @@ const removeAll = async (req, res) => {
   }
 };
 
-export default { create, list, contactByID, read, update, remove, removeAll };
+const reply = async (req, res) => {
+  const { email, message } = req.body;
+
+  console.log("Reply sent to:", email, "Message:", message);
+
+  return res.json({ message: "Reply sent (simulated backend)" });
+};
+
+export default { create, list, contactByID, read, update, remove, removeAll, reply };

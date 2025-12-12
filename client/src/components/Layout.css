@@ -74,3 +74,21 @@ body {
   margin: auto;
   min-height: 100vh; /* full height */
 }
+
+
+.signout-btn {
+  margin-left: 15px;
+  background: #f5ebde;
+  border: 1.5px solid #d48383;
+  color: rgb(104, 6, 6);
+  cursor: pointer;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: 0.2s ease-in-out;
+}
+
+.signout-btn:hover {
+  background: #bc4749;   
+  color: white;                
+}

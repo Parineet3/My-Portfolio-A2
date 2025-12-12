@@ -1,6 +1,8 @@
 import config from "./config/config.js";
 import app from "./server/express.js";
 import mongoose from "mongoose";
+import authCtrl from "./server/controllers/auth.controller.js"; 
+
 
 // Set Mongoose Promise
 mongoose.Promise = global.Promise;
@@ -18,6 +20,12 @@ mongoose
 mongoose.connection.on("error", (err) => {
   console.error(`❌ MongoDB connection error: ${err}`);
 });
+
+///TESTING
+app.get("/api/protected", authCtrl.requireSignin, (req, res) => {
+  res.json({ message: "You accessed a protected route!" });
+});
+
 
 // ✅ Basic route to test
 app.get("/", (req, res) => {
