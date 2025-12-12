@@ -28,9 +28,9 @@ app.get("/api/protected", authCtrl.requireSignin, (req, res) => {
 
 
 // ✅ Basic route to test
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to User application." });
-});
+// app.get("/", (req, res) => {
+//   res.json({ message: "Welcome to User application." });
+// });
 
 // ✅ Start the server
 app.listen(config.port, (err) => {

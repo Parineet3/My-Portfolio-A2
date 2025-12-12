@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import compress from "compression";
 import cors from "cors";
 import helmet from "helmet";
+import path from "path";
 
 
 import userRoutes from "./routes/user.routes.js";
@@ -38,5 +39,14 @@ app.use((err, req, res, next) => {
     console.log(err);
   }
 });
+
+
+const CURRENT_WORKING_DIR = process.cwd();
+app.use(express.static(path.join(CURRENT_WORKING_DIR, "dist/app")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(CURRENT_WORKING_DIR, "dist/app/index.html"));
+});
+
 
 export default app;
