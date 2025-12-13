@@ -1,4 +1,7 @@
 /* eslint-env cypress */
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+
 
 describe("Sign Up Page E2E Test", () => {
   it("allows a new user to enter details and validates fields", () => {

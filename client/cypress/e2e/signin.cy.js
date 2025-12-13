@@ -1,4 +1,7 @@
 /* eslint-env cypress */
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+
 
 describe("Sign In Page E2E Test", () => {
   it("allows a user to enter credentials and shows an error for invalid login", () => {

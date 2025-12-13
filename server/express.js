@@ -41,12 +41,20 @@ app.use((err, req, res, next) => {
 });
 
 
+// const CURRENT_WORKING_DIR = process.cwd();
+// app.use(express.static(path.join(CURRENT_WORKING_DIR, "dist/app")));
+
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(CURRENT_WORKING_DIR, "dist/app/index.html"));
+// });
+
 const CURRENT_WORKING_DIR = process.cwd();
-app.use(express.static(path.join(CURRENT_WORKING_DIR, "dist/app")));
+app.use(express.static(path.join(CURRENT_WORKING_DIR, "dist")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(CURRENT_WORKING_DIR, "dist/app/index.html"));
+  res.sendFile(path.join(CURRENT_WORKING_DIR, "dist", "index.html"));
 });
+
 
 
 export default app;

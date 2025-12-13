@@ -6,6 +6,8 @@ import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
   globalIgnores(['dist']),
+
+  // 🔹 Main JS / React / Vitest config
   {
     files: ['**/*.{js,jsx}'],
     extends: [
@@ -14,22 +16,36 @@ export default defineConfig([
       reactRefresh.configs.vite,
     ],
     languageOptions: {
-      ecmaVersion: 2020,
-      globals:{ 
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: {
         ...globals.browser,
-        test: "readonly",
-        expect: "readonly",
         ...globals.node,
-        ...globals.vitest
+        ...globals.vitest,
+        test: 'readonly',
+        expect: 'readonly',
       },
       parserOptions: {
-        ecmaVersion: 'latest',
         ecmaFeatures: { jsx: true },
-        sourceType: 'module',
       },
     },
     rules: {
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+    },
+  },
+
+  // 🔹 Cypress E2E config (THIS fixes `cy is not defined`)
+  {
+    files: ['client/cypress/**/*.js'],
+    languageOptions: {
+      globals: {
+        cy: 'readonly',
+        Cypress: 'readonly',
+        describe: 'readonly',
+        it: 'readonly',
+        beforeEach: 'readonly',
+        afterEach: 'readonly',
+      },
     },
   },
 ])
