@@ -33,10 +33,13 @@ app.get("/api/protected", authCtrl.requireSignin, (req, res) => {
 // });
 
 // ✅ Start the server
-app.listen(config.port, (err) => {
+const port = process.env.PORT || config.port || 3000;
+
+app.listen(port, (err) => {
   if (err) {
     console.error("❌ Server failed to start:", err);
   } else {
-    console.info(`🚀 Server started on port ${config.port}`);
+    console.info(`🚀 Server started on port ${port}`);
   }
 });
+
