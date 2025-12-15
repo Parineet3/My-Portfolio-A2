@@ -6,7 +6,8 @@
   "author": "Parineet Kaur",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js",
+    "build": "cd client && npm install && npm run build"
   },
   "dependencies": {
     "compression": "^1.8.1",
