@@ -7,7 +7,8 @@
   "license": "MIT",
   "scripts": {
     "start": "node server.js",
-    "build": "cd client && npm install && npm run build"
+    "build": "npm install && cd client && npm install && npm run build"
+
   },
   "dependencies": {
     "compression": "^1.8.1",
